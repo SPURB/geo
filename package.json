@@ -15,17 +15,17 @@
   "author": "",
   "license": "GPL-3.0-or-later",
   "devDependencies": {
-    "@babel/cli": "^7.10.5",
-    "@babel/core": "^7.11.1",
-    "@babel/node": "^7.10.5",
-    "@babel/plugin-transform-runtime": "^7.11.0",
-    "@babel/preset-env": "^7.11.0",
-    "@babel/runtime": "^7.11.2",
+    "@babel/cli": "7.10.5",
+    "@babel/core": "7.11.1",
+    "@babel/node": "7.10.5",
+    "@babel/plugin-transform-runtime": "7.11.0",
+    "@babel/preset-env": "7.11.0",
+    "@babel/runtime": "7.11.2",
     "babel-node": "0.0.1-security",
-    "babel-register": "^6.26.0",
-    "dotenv": "^8.2.0",
-    "nodemon": "^2.0.4",
-    "sequelize-cli": "^6.2.0"
+    "babel-register": "6.26.0",
+    "dotenv": "8.2.0",
+    "nodemon": "2.0.4",
+    "sequelize-cli": "6.2.0"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
