@@ -53,7 +53,9 @@ select * from public."Geo";
 ```
 npm run dev
 ```
-vá para [http://localhost:5000/geo/api/743](http://localhost:5000/geo/api/743)
+Teste as enpoints:
+ - [http://localhost:5000/geo/api/743](http://localhost:5000/geo/api/743)
+ - [http://localhost:5000/geo/api/[743,742,795]/mapear/](http://localhost:5000/geo/api/[743,742,795]/mapear/)
 
 
 #### Publicação
