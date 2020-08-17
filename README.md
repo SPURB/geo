@@ -24,25 +24,22 @@ DB_PORT=5432
 
 3. Rode o comado para criar o banco
 ```
-npx sequelize-cli db:create
+npm run db:create
 ```
 
 4. Pelo pg admin instale o POSTGIS rodando a seguinte query. No pgadmin:
 ```
 CREATE EXTENSION IF NOT EXISTS postgis;
 ```
+![add-postgis](https://user-images.githubusercontent.com/4117768/90423536-07915200-e093-11ea-9e8f-bd669ecb1b32.png)
 
-5. Crie a estrutura do banco de dados. No terminal:
-```
-npx sequelize-cli db:migrate
-```
 
-6. Popule o banco com os dados de `data/oucfl.geojson`
+5. Crie a estrutura do banco de dados e inclua no banco os dados de `data/oucfl.geojson`:
 ```
-npx sequelize-cli db:seed:all
+npm run db:init
 ```
 
-7. Teste no pg admin se está tudo certo. No pgadmin:
+6. Teste se os dados foram corretamente inputados no banco
 ```
 select * from public."Geo";
 ```

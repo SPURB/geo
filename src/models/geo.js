@@ -18,6 +18,6 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Geo',
-  });
-  return Geo;
+  })
+  return Geo
 };

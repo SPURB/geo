@@ -19,7 +19,7 @@ module.exports = {
       }
     })
     try {
-      await queryInterface.bulkInsert('Geo', sequelizedPolygons, {})
+      await queryInterface.bulkInsert('Geos', sequelizedPolygons, {})
     }
     catch (err) {
       throw new Error(err)
@@ -27,6 +27,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('Geo', null, {})
+    return queryInterface.bulkDelete('Geos', null, {})
   }
 }

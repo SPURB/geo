@@ -16,7 +16,6 @@ const GeoController = {
   },
   findMultiple: (req, res) => {
     const ids = JSON.parse(req.params.ids)
-    console.log(ids)
     Promise.all(ids.map(id => Geo.findByPk(id)))
       .then(data => {
         res.send(data)
