@@ -1,4 +1,4 @@
-API de dados geográficos da São Paulo Urbanismo
+(em desenvolvimento) API de dados geográficos da São Paulo Urbanismo
 
 
 #### Pré-requisitos

@@ -7,6 +7,13 @@ module.exports = {
         role: 'admin',
         createdAt: new Date(),
         updatedAt: new Date()
+      },
+      {
+        token: '4a2cd8360eca220ca02466bdab79086a658359ab6ea87df25b6ca99d63a13127',
+        valid: false,
+        role: 'user',
+        createdAt: new Date(),
+        updatedAt: new Date()
       }
     ], {})
   },

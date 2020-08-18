@@ -4,14 +4,14 @@ const Token = db.Token
 
 export const middlewares = {
   /*
-   * Define se requisição é autorizada. Seta req.role
+   * Define se requisição é autorizada. Se autorizado seta req.role (tipo de autorização)
   */
   isAuthorized: async (req, res, next) => {
     const { authorization } = req.headers
 
     try {
       const apiToken = await Token.findOne({
-        attributes: [ 'token', 'role' ],
+        attributes: [ 'token', 'role', 'valid' ],
         where: { token: authorization }
       })
 
@@ -23,8 +23,18 @@ export const middlewares = {
         })
       }
       else {
-        req.role = apiToken.dataValues.role
-        next()
+        const { role, valid } = apiToken.dataValues
+
+        if (!valid) {
+          res.status(403).json({
+            message: 'Este token não é mais válido. Crie um novo token ou solicite um acesso para desenvolvimento@spurbanismo.sp.gov.br para utilizar a api'
+          })
+        }
+
+        else {
+          req.role = role
+          next()
+        }
       }
     }
 

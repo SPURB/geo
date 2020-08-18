@@ -15,9 +15,8 @@ const GeoController = {
       })
   },
   findOrCreate: (req, res) => {
-    console.log(req.role)
     res.send({
-      olar: "autorizado"
+      olar: `${req.role} autorizado`
     })
   },
   findMultiple: (req, res) => {
