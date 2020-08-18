@@ -146,7 +146,7 @@ const MapasController = {
     }
   },
   findOne: (req, res) => {
-    Mapa.findAll({
+    Mapa.findOne({
       where: { id: req.params.id },
       include: [
         {

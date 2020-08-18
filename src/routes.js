@@ -22,7 +22,19 @@ export const routeBase = (app, basePath) => {
           endpoint: `${baseUrl}/geo/:ids/mapear`,
           description: 'Lista conjunto de geometrias',
           type: 'GET',
-          example: 'http://localhost:5000/geo/api/[743,742,795]/mapear/'
+          example: 'http://localhost:5000/geo/api/geo/[743,742,795]/mapear/'
+        },
+        {
+          endpoint: `${baseUrl}/mapas/`,
+          description: 'Lista de todos os mapas',
+          type: 'GET',
+          example: 'http://localhost:5000/geo/api/mapas/'
+        },
+        {
+          endpoint: `${baseUrl}/mapas/:id`,
+          description: 'Mapa com coleção de geometrias',
+          type: 'GET',
+          example: 'http://localhost:5000/geo/api/mapas/1'
         }
       ]
     })
