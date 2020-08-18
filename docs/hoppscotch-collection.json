@@ -1,0 +1,119 @@
+[
+  {
+    "name": "geo",
+    "folders": [],
+    "requests": [
+      {
+        "url": "http://localhost:5000",
+        "path": "/geo/api",
+        "method": "GET",
+        "auth": "None",
+        "httpUser": "",
+        "httpPassword": "",
+        "passwordFieldType": "password",
+        "bearerToken": "",
+        "headers": [],
+        "params": [
+          {
+            "key": "Authorization",
+            "value": "4a2cd8360eca220ca02466bdab79086a658359ab6ea87df25b6ca99d63a13126",
+            "type": "query"
+          }
+        ],
+        "bodyParams": [],
+        "rawParams": "",
+        "rawInput": true,
+        "contentType": "",
+        "requestType": "",
+        "preRequestScript": "// pw.env.set('variable', 'value');",
+        "testScript": "// pw.expect('variable').toBe('value');",
+        "label": "",
+        "name": "/",
+        "collection": 1
+      },
+      {
+        "url": "http://localhost:5000",
+        "path": "/geo/api/%5B743,742,795%5D/mapear/",
+        "method": "GET",
+        "auth": "None",
+        "httpUser": "",
+        "httpPassword": "",
+        "passwordFieldType": "password",
+        "bearerToken": "",
+        "headers": [],
+        "params": [
+          {
+            "key": "Authorization",
+            "value": "4a2cd8360eca220ca02466bdab79086a658359ab6ea87df25b6ca99d63a13126",
+            "type": "query"
+          }
+        ],
+        "bodyParams": [],
+        "rawParams": "",
+        "rawInput": true,
+        "contentType": "",
+        "requestType": "",
+        "preRequestScript": "// pw.env.set('variable', 'value');",
+        "testScript": "// pw.expect('variable').toBe('value');",
+        "label": "",
+        "name": "/:ids/mapear/",
+        "collection": 0
+      },
+      {
+        "url": "http://localhost:5000",
+        "path": "/geo/api/743",
+        "method": "GET",
+        "auth": "None",
+        "httpUser": "",
+        "httpPassword": "",
+        "passwordFieldType": "password",
+        "bearerToken": "",
+        "headers": [],
+        "params": [
+          {
+            "key": "Authorization",
+            "value": "4a2cd8360eca220ca02466bdab79086a658359ab6ea87df25b6ca99d63a13126",
+            "type": "query"
+          }
+        ],
+        "bodyParams": [],
+        "rawParams": "",
+        "rawInput": true,
+        "contentType": "",
+        "requestType": "",
+        "preRequestScript": "// pw.env.set('variable', 'value');",
+        "testScript": "// pw.expect('variable').toBe('value');",
+        "label": "",
+        "name": "/:id",
+        "collection": 0
+      },
+      {
+        "url": "http://localhost:5000",
+        "path": "/geo/api/",
+        "method": "POST",
+        "auth": "Bearer Token",
+        "httpUser": "authorization",
+        "httpPassword": "4a2cd8360eca220ca02466bdab79086a658359ab6ea87df25b6ca99d63a13126",
+        "passwordFieldType": "text",
+        "bearerToken": "4a2cd8360eca220ca02466bdab79086a658359ab6ea87df25b6ca99d63a13126",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "_4a2cd8360eca220ca02466bdab79086a658359ab6ea87df25b6ca99d63a13126"
+          }
+        ],
+        "params": [],
+        "bodyParams": [],
+        "rawParams": "{}",
+        "rawInput": false,
+        "contentType": "application/json",
+        "requestType": "",
+        "preRequestScript": "// pw.env.set('variable', 'value');",
+        "testScript": "// pw.expect('variable').toBe('value');",
+        "label": "",
+        "name": "/",
+        "collection": 0
+      }
+    ]
+  }
+]
