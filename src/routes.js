@@ -1,5 +1,8 @@
+import { middlewares } from './middlewares'
 import { Router } from 'express'
 import { GeoController} from './controllers'
+
+const { isAuthorized } = middlewares
 
 const route = Router()
 
@@ -18,13 +21,14 @@ route.get('/', (req, res) =>{
         endpoint: `${baseUrl}/:ids/mapear`,
         description: 'Lista conjunto de geometrias',
         type: 'GET',
-        example: 'http://localhost:5000/geo/api/[743, 742, 795]/mapear/'
+        example: 'http://localhost:5000/geo/api/[743,742,795]/mapear/'
       }
 
     ]
   })
 })
 
+route.post('/', isAuthorized, GeoController.findOrCreate)
 route.get('/:id', GeoController.findOne)
 route.get('/:ids/mapear/', GeoController.findMultiple)
 

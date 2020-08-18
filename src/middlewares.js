@@ -1,10 +1,37 @@
-export default {
+import { db } from './models'
+const Token = db.Token
+
+
+export const middlewares = {
   /*
-   * Authorization: API Key
-   */
-  isAuth: async (req, res, next) => {
+   * Define se requisição é autorizada. Seta req.role
+  */
+  isAuthorized: async (req, res, next) => {
     const { authorization } = req.headers
-    const isAuthorized = config.API_KEY === authorization
-    isAuthorized ? next() : res.status(403).json({ message: 'Não Autorizado' })
+
+    try {
+      const apiToken = await Token.findOne({
+        attributes: [ 'token', 'role' ],
+        where: { token: authorization }
+      })
+
+      const notAuthorized = !apiToken
+
+      if (notAuthorized) {
+        res.status(403).json({
+          message: 'Não autorizado. Solicite um acesso para desenvolvimento@spurbanismo.sp.gov.br para utilizar a api'
+        })
+      }
+      else {
+        req.role = apiToken.dataValues.role
+        next()
+      }
+    }
+
+    catch(err) {
+      res.status(500).json({
+        message: err.message
+      })
+    }
   }
 }

@@ -14,6 +14,12 @@ const GeoController = {
         })
       })
   },
+  findOrCreate: (req, res) => {
+    console.log(req.role)
+    res.send({
+      olar: "autorizado"
+    })
+  },
   findMultiple: (req, res) => {
     const ids = JSON.parse(req.params.ids)
     Promise.all(ids.map(id => Geo.findByPk(id)))

@@ -40,20 +40,20 @@ npm run db:init
 ```
 
 6. Teste se os dados foram corretamente inputados no banco
-```
-select * from public."Geo";
-```
 ![pgadmin](https://user-images.githubusercontent.com/4117768/90301609-61b5cb80-de77-11ea-9940-3e899780a9de.png)
+```
+SELECT * from public."Geos";
+```
+
+7. Teste as enpoints:
+ - [http://localhost:5000/geo/api/743](http://localhost:5000/geo/api/743)
+ - [http://localhost:5000/geo/api/[743,742,795]/mapear/](http://localhost:5000/geo/api/[743,742,795]/mapear/)
 
 
 #### Desenvolvimento
 ```
 npm run dev
 ```
-Teste as enpoints:
- - [http://localhost:5000/geo/api/743](http://localhost:5000/geo/api/743)
- - [http://localhost:5000/geo/api/[743,742,795]/mapear/](http://localhost:5000/geo/api/[743,742,795]/mapear/)
-
 
 #### Publicação
 ```

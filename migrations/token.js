@@ -14,6 +14,10 @@ module.exports = {
       valid: {
         type: Sequelize.BOOLEAN
       },
+      role: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

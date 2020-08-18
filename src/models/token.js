@@ -12,10 +12,11 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
     }
-  };
+  }
   Token.init({
     token: DataTypes.STRING,
-    valid: DataTypes.BOOLEAN
+    valid: DataTypes.BOOLEAN,
+    role: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Token',

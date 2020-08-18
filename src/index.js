@@ -20,14 +20,14 @@ app.listen(PORT, () =>
   console.log(`Serviço disponível na porta ${PORT}`)
 )
 
-app.use((req, res, next) => {
-  const err = new Error('Not Found')
-  err.status = 404
-  next(err)
-})
+// app.use((req, res, next) => {
+//   const err = new Error('Not Found')
+//   err.status = 404
+//   next(err)
+// })
 
-app.use((err, req, res, next) => {
-  res.status(err.status || 500).send({
-    message: err.message
-  })
-})
+// app.use((err, req, res, next) => {
+//   res.status(err.status || 500).send({
+//     message: err.message
+//   })
+// })
