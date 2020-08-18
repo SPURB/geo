@@ -1,5 +1,7 @@
 import { db } from './models'
 const Geo = db.Geo
+const Mapa = db.Mapa
+const MapaGeo = db.MapaGeo
 
 const GeoController = {
   findOne: (req, res) => {
@@ -14,20 +16,18 @@ const GeoController = {
         })
       })
   },
-  create: (req, res) => {
-    const features = req.body
-    Geo.create({ features })
-      .then(({ id }) => {
-        res.send({
-          id,
-          message: `Geometria de ${id} cadastrado com sucesso.`
-        })
+  create: async (req, res) => {
+    try {
+      const geo = await Geo.create({ features: req.body })
+
+      return res.status(200).json({
+        id: geo.id,
+        message: `Geometria de ${geo.id} cadastrado com sucesso.`
       })
-      .catch(err => {
-        res.status(500).send({
-          message: err.message || `Ocorreu um erro na criação da geometria`
-        })
-      })
+    }
+    catch (err) {
+      return res.status(500).json({ err })
+    }
   },
   update: (req, res) => {
     const { id } = req.params
@@ -85,4 +85,86 @@ const GeoController = {
   }
 }
 
-export { GeoController }
+const MapasController = {
+  findAll: async (req, res) => {
+    let where = {}
+
+    try {
+      if (req.query) {
+        where = req.query
+      }
+      const mapas = await Mapa.findAll({
+        where,
+        attributes: { exclude: ['createdAt', 'updatedAt'] }
+      })
+      res.status(200).json(mapas)
+    }
+    catch (err) {
+      res.status(500).json({
+        err,
+        message: err.message || 'erro'
+      })
+    }
+  },
+  create: async (req, res) => {
+    try {
+      const { geos, ...data } = req.body
+      const mapa = await Mapa.create(data)
+
+      if (geos && geos.length > 0) {
+        mapa.setGeos(geos)
+      }
+      res.send(mapa)
+    }
+    catch (err) {
+      res.status(500).json({
+        err,
+        message: err.message || 'Ocorreu um erro na criação do mapa'
+      })
+    }
+  },
+  update: async (req, res) => {
+    try {
+      const { id } = req.params
+
+      const mapa = await Mapa.findOne({ where:{ id } })
+
+      const { geos, ...data } = req.body
+      mapa.update(data)
+
+      if (geos && geos.length > 0) {
+        mapa.setGeos(geos)
+      }
+
+      res.send(mapa)
+    }
+    catch (err) {
+      res.status(500).json({
+        err,
+        message: err.message || 'Ocorreu um erro na atualização do mapa'
+      })
+    }
+  },
+  findOne: (req, res) => {
+    Mapa.findAll({
+      where: { id: req.params.id },
+      include: [
+        {
+          model: Geo,
+          as: 'geos',
+          through: { attributes: [] }
+        }
+      ]
+    })
+      .then(data => {
+        res.send(data)
+      })
+      .catch(err => {
+        res.status(500).send({
+          message: err.message || `Ocorreu um erro na consulta do mapa id: ${id}`
+        })
+      })
+    }
+}
+
+export { GeoController, MapasController }

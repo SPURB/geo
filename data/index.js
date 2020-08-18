@@ -1,6 +1,6 @@
 const fs = require('fs')
 const path = require('path')
-const geojson = JSON.parse(fs.readFileSync(`${path.resolve(__dirname)}/oucfl.geojson`, 'utf8'))
+const geojson = JSON.parse(fs.readFileSync(`${path.resolve(__dirname)}/oucfl.dev.geojson`, 'utf8'))
 
 module.exports = {
   polygons: (() => {

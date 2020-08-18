@@ -1,7 +1,7 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
-import routes from './routes'
+import { routeBase, routesGeo, routesMapas } from './routes'
 import { name } from '../package.json'
 
 const basePath = `/${name}/api`
@@ -12,7 +12,9 @@ app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
-app.use(basePath, routes)
+routeBase(app, basePath)
+routesGeo(app, basePath)
+routesMapas(app, basePath)
 
 const PORT = process.env.PORT || 5000
 
