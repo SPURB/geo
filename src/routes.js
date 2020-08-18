@@ -23,12 +23,13 @@ route.get('/', (req, res) =>{
         type: 'GET',
         example: 'http://localhost:5000/geo/api/[743,742,795]/mapear/'
       }
-
     ]
   })
 })
 
-route.post('/', isAuthorized, GeoController.findOrCreate)
+route.post('/', isAuthorized, GeoController.create)
+route.put('/:id', isAuthorized, GeoController.update)
+route.delete('/:id', isAuthorized, GeoController.delete)
 route.get('/:id', GeoController.findOne)
 route.get('/:ids/mapear/', GeoController.findMultiple)
 

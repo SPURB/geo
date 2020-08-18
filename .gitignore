@@ -1,3 +1,6 @@
+#
+init-postgres.ps1
+
 # Enviroment variables
 .env
 
