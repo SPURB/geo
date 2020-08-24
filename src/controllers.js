@@ -87,7 +87,7 @@ const GeoController = {
     const ids = JSON.parse(req.params.ids)
     Promise.all(ids.map(id => Geo.findByPk(id)))
       .then(data => {
-        const geo = data.map(geo => {
+        const features = data.map(geo => {
           return {
             id: geo.id,
             type: 'Feature',
@@ -100,7 +100,7 @@ const GeoController = {
         
         res.send({
           type: 'FeatureCollection',
-          features: [geo]
+          features
         })
       })
       .catch(err => {

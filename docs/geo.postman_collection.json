@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "ea3ea615-92b5-41ac-b76b-359917b3bdf8",
+		"_postman_id": "72d4927c-8efc-49d5-9aec-4974b4f9fe12",
 		"name": "geo",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -114,7 +114,27 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5000/geo/api/",
+					"raw": "http://localhost:5000/geo/api",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"geo",
+						"api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/geo/api/geo/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/geo/api/geo/738",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -123,6 +143,31 @@
 					"path": [
 						"geo",
 						"api",
+						"geo",
+						"738"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/geo/api/geo/[array]/mapear/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/geo/api/geo/[743,742,795]/mapear/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"geo",
+						"api",
+						"geo",
+						"[743,742,795]",
+						"mapear",
 						""
 					]
 				}
