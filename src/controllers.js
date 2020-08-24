@@ -86,9 +86,7 @@ const GeoController = {
         const features = data.map(geo => {
           return {
             type: 'Feature',
-            properties: {
-              id: geo.id
-            },
+            properties: {},
             geometry: {
               type: geo.features.type,
               coordinates: geo.features.coordinates
