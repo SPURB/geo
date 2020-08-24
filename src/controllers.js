@@ -8,7 +8,19 @@ const GeoController = {
     const { id } = req.params
     Geo.findByPk(id)
       .then(data => {
-        res.send(data)
+        const geo = {          
+          type: 'Feature',
+          geometry: {
+            type: data.features.type,
+            coordinates: data.features.coordinates
+          }
+        }
+
+        res.send({
+          id: data.id,
+          type: 'Feature',
+          features: [geo]
+        })
       })
       .catch(err => {
         res.status(500).send({
@@ -75,7 +87,21 @@ const GeoController = {
     const ids = JSON.parse(req.params.ids)
     Promise.all(ids.map(id => Geo.findByPk(id)))
       .then(data => {
-        res.send(data)
+        const geo = data.map(geo => {
+          return {
+            id: geo.id,
+            type: 'Feature',
+            geometry: {
+              type: geo.features.type,
+              coordinates: geo.features.coordinates
+            }
+          }
+        })
+        
+        res.send({
+          type: 'FeatureCollection',
+          features: [geo]
+        })
       })
       .catch(err => {
         res.status(500).send({

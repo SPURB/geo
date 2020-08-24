@@ -22,17 +22,17 @@ DB_NAME=spurb_geo
 DB_PORT=5432
 ```
 
-3. Rode o comado para criar o banco
-```
-npm run db:create
-```
-
-4. Pelo pg admin instale o POSTGIS rodando a seguinte query. No pgadmin:
+3. Pelo pg admin instale o POSTGIS rodando a seguinte query. No pgadmin:
 ```
 CREATE EXTENSION IF NOT EXISTS postgis;
 ```
 ![add-postgis](https://user-images.githubusercontent.com/4117768/90423536-07915200-e093-11ea-9e8f-bd669ecb1b32.png)
 
+
+4. Rode o comado para criar o banco
+```
+npm run db:create
+```
 
 5. Crie a estrutura do banco de dados e inclua no banco os dados de `data/oucfl.geojson`:
 ```
