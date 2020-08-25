@@ -8,20 +8,14 @@ const GeoController = {
     const { id } = req.params
     Geo.findByPk(id)
       .then(data => {
-        const geo = {          
+
+        res.send({
           type: 'Feature',
-          properties: {
-            id: data.id
-          },
+          properties: {},
           geometry: {
             type: data.features.type,
             coordinates: data.features.coordinates
-          }
-        }
-
-        res.send({
-          type: 'FeatureCollection',
-          features: [geo]
+          }   
         })
       })
       .catch(err => {
@@ -187,7 +181,27 @@ const MapasController = {
       ]
     })
       .then(data => {
-        res.send(data)
+        const features = data.geos.map(geo => {
+          return {
+            type: 'Feature',
+            properties: {
+              id: geo.id
+            },
+            geometry: {
+              type: geo.features.type,
+              coordinates: geo.features.coordinates
+            }
+          }
+        })
+        
+        res.send({
+          type: 'FeatureCollection',
+          properties: {
+            nome: data.nome,
+            descricao: data.descricao
+          },
+          features
+        })
       })
       .catch(err => {
         res.status(500).send({
