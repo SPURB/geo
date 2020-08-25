@@ -10,6 +10,9 @@ const GeoController = {
       .then(data => {
         const geo = {          
           type: 'Feature',
+          properties: {
+            id: data.id
+          },
           geometry: {
             type: data.features.type,
             coordinates: data.features.coordinates
@@ -17,8 +20,7 @@ const GeoController = {
         }
 
         res.send({
-          id: data.id,
-          type: 'Feature',
+          type: 'FeatureCollection',
           features: [geo]
         })
       })
@@ -89,8 +91,10 @@ const GeoController = {
       .then(data => {
         const features = data.map(geo => {
           return {
-            id: geo.id,
             type: 'Feature',
+            properties: {
+              id: geo.id
+            },
             geometry: {
               type: geo.features.type,
               coordinates: geo.features.coordinates
