@@ -23,7 +23,7 @@
     "@babel/runtime": "7.12.1",
     "babel-node": "0.0.1-security",
     "babel-register": "6.26.0",
-    "dotenv": "8.2.0",
+    "dotenv": "9.0.2",
     "nodemon": "2.0.5",
     "sequelize-cli": "6.2.0"
   },
