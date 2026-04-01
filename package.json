@@ -24,7 +24,7 @@
     "babel-node": "0.0.1-security",
     "babel-register": "6.26.0",
     "dotenv": "8.2.0",
-    "nodemon": "2.0.5",
+    "nodemon": "2.0.22",
     "sequelize-cli": "6.2.0"
   },
   "dependencies": {
